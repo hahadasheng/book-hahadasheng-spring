@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
 
-    final private InstantiationStrategy cglibInstantiationStrategy = new CglibSubclassingInstantiationStrategy();
+    private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
 
     final private InstantiationStrategy simpleInstantiationStrategy = new SimpleInstantiationStrategy();
 
@@ -45,7 +45,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             // 没有找到匹配的构造参数，需要抛出异常，参数类型详细就不打印了
             throw new BeansException(String.format("Can`t found match Parameter for class [%s]", beanClass.getName()));
         }
-        return cglibInstantiationStrategy.instantiate(beanDefinition, beanName, constructorToUse, args);
+        return getInstantiationStrategy().instantiate(beanDefinition, beanName, constructorToUse, args);
     }
 
     /**
@@ -61,4 +61,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         return true;
     }
 
+
+    public InstantiationStrategy getInstantiationStrategy() {
+        return instantiationStrategy;
+    }
+
+    public void setInstantiationStrategy(InstantiationStrategy instantiationStrategy) {
+        this.instantiationStrategy = instantiationStrategy;
+    }
 }
