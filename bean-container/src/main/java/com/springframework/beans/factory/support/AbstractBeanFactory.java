@@ -4,20 +4,46 @@ import com.springframework.beans.BeansException;
 import com.springframework.beans.factory.BeanFactory;
 import com.springframework.beans.factory.config.BeanDefinition;
 
+import java.util.Objects;
+
 /**
  * 简单bean工厂类，可以获取单例bean
  */
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry
-implements BeanFactory {
+        implements BeanFactory {
 
     @Override
     public Object getBean(String beanName) throws BeansException {
+        return getBeanHelper(beanName, null);
+    }
+
+    /**
+     * 注意：在调用此方法时如果传入类似`getBean(beanName, (Object) null)`形式，
+     * args并不是args==null，而是args==Object[]{null}
+     * 这个是可变参数最容易出错的地方，因为与常规逻辑不一致！
+     */
+    @Override
+    public Object getBean(String beanName, Object... args) throws BeansException {
+        return getBeanHelper(beanName, args);
+    }
+
+    private Object getBeanHelper(String beanName, Object[] args) {
         Object bean = getSingleton(beanName);
         if (bean != null){
             return bean;
         }
         BeanDefinition beanDefinition = getBeanDefinition(beanName);
-        return createBean(beanName, beanDefinition);
+        // 同步控制，避免创建多个Bean
+        synchronized (beanDefinition.getBeanClass()) {
+            bean = getSingleton(beanName);
+            if (bean != null){
+                return bean;
+            }
+            if (Objects.isNull(args) || args.length == 0) {
+                return createBean(beanName, beanDefinition);
+            }
+            return createBean(beanName, beanDefinition, args);
+        }
     }
 
     /**
@@ -36,4 +62,9 @@ implements BeanFactory {
      * @throws BeansException BeanException
      */
     protected abstract Object createBean(String beanName, BeanDefinition beanDefinition) throws BeansException;
+
+    /**
+     * 创建含有参数的bean
+     */
+    protected abstract Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException;
 }
