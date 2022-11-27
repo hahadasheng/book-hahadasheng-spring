@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 核心实现类
+ */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
         implements BeanDefinitionRegistry {
 

@@ -1,8 +1,7 @@
-package com.springframework;
+package com.springframework.test1;
 
-import com.springframework.bean.UserService;
+import com.springframework.test1.bean.UserService;
 import com.springframework.beans.factory.config.BeanDefinition;
-import com.springframework.beans.factory.BeanFactory;
 import com.springframework.beans.factory.support.DefaultListableBeanFactory;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.NoOp;

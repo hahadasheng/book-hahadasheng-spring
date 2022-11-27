@@ -1,4 +1,4 @@
-package com.springframework.bean;
+package com.springframework.test1.bean;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
