@@ -1,4 +1,9 @@
 package com.springframework.core.io;
 
-public class ResourceLoader {
+public interface ResourceLoader {
+
+    String CLASSPATH_URL_PREFIX = "classpath:";
+
+    Resource getResource(String location);
+
 }
