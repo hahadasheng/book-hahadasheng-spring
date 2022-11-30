@@ -4,7 +4,7 @@ import com.springframework.beans.PropertyValue;
 import com.springframework.beans.PropertyValues;
 import com.springframework.beans.factory.config.BeanDefinition;
 import com.springframework.beans.factory.config.BeanReference;
-import com.springframework.beans.factory.support.DefaultListableBeanFactory;
+import com.springframework.beans.factory.support.DefaultListableBeanRegistry;
 import com.springframework.test2.bean.UserService;
 import com.springframework.test2.bean.UserDao;
 
@@ -16,7 +16,7 @@ public class ApiTest {
     @Test
     public void test_BeanFactory() {
         // 1. 初始化 BeanFactory 接口
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        DefaultListableBeanRegistry beanFactory = new DefaultListableBeanRegistry();
 
         // 2. 注册UserDao bean对象
         beanFactory.registerBeanDefinition("userDao", new BeanDefinition(UserDao.class));

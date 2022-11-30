@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * 简单bean工厂类，可以获取单例bean
  */
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry
+public abstract class AbstractBeanRegistry extends DefaultSingletonBeanRegistry
         implements BeanFactory {
 
     @Override

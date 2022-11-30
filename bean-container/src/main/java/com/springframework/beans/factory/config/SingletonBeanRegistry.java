@@ -3,7 +3,7 @@ package com.springframework.beans.factory.config;
 /**
  * 单例工厂接口
  */
-public interface SingletonBeanFactory {
+public interface SingletonBeanRegistry {
 
     /**
      * 获取单例对象

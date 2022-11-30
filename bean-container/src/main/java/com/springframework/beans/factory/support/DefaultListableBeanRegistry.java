@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * 核心实现类
  */
-public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
+public class DefaultListableBeanRegistry extends AbstractAutowireCapableBeanRegistry
         implements BeanDefinitionRegistry {
 
     final private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
