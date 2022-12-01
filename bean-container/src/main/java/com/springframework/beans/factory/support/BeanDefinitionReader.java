@@ -12,7 +12,7 @@ public interface BeanDefinitionReader {
 
     void loadBeanDefinitions(Resource resource) throws BeansException;
 
-    void loadBeanDefinitions(Resource... resource) throws BeansException;
+    void loadBeanDefinitions(Resource... resources) throws BeansException;
 
     void loadBeanDefinitions(String location) throws BeansException;
 

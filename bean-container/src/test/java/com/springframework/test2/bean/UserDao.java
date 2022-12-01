@@ -1,4 +1,4 @@
-package com.springframework.test3.bean;
+package com.springframework.test2.bean;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,3 +24,4 @@ public class UserDao {
         return hashMap.get(uId);
     }
 }
+
