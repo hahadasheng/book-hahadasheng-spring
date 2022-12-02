@@ -1,8 +1,9 @@
-package com.springframework.test1;
+/*
+package com.springframework.ok;
 
-import com.springframework.test1.bean.UserService;
+import com.springframework.ok.bean.UserService;
 import com.springframework.beans.factory.config.BeanDefinition;
-import com.springframework.beans.factory.support.DefaultListableBeanRegistry;
+import com.springframework.beans.factory.support.DefaultListableBeanFactory;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.NoOp;
 import org.junit.Test;
@@ -14,7 +15,7 @@ public class ApiTest {
     @Test
     public void test_BeanFactory() {
         // 1. 初始化 BeanFactory 接口
-        DefaultListableBeanRegistry beanFactory = new DefaultListableBeanRegistry();
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 
         // 2. 注册Bean对象
         BeanDefinition beanDefinition = new BeanDefinition(UserService.class);
@@ -70,3 +71,4 @@ public class ApiTest {
     }
 
 }
+*/

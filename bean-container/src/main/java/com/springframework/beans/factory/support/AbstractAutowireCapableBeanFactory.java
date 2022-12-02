@@ -10,7 +10,7 @@ import com.springframework.beans.factory.config.BeanReference;
 import java.lang.reflect.Constructor;
 import java.util.Objects;
 
-public abstract class AbstractAutowireCapableBeanRegistry extends AbstractBeanRegistry {
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
 
     private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
 

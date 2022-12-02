@@ -1,3 +1,4 @@
+/*
 package com.springframework.test2.bean;
 
 import lombok.Getter;
@@ -25,3 +26,4 @@ public class UserDao {
     }
 }
 
+*/

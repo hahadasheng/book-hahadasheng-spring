@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * 简单bean工厂类，可以获取单例bean
  */
-public abstract class AbstractBeanRegistry extends DefaultSingletonBeanRegistry
+public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry
         implements BeanFactory {
 
     @Override
@@ -26,6 +26,14 @@ public abstract class AbstractBeanRegistry extends DefaultSingletonBeanRegistry
     @Override
     public Object getBean(String beanName, Object... args) throws BeansException {
         return getBeanHelper(beanName, args);
+    }
+
+    /**
+     * 根据Class的类型强转类型
+     */
+    @Override
+    public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
+        return (T)getBean(name);
     }
 
     private Object getBeanHelper(String beanName, Object[] args) {

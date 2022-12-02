@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * 核心实现类
  */
-public class DefaultListableBeanRegistry extends AbstractAutowireCapableBeanRegistry
+public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
         implements BeanDefinitionRegistry, ConfigurableListableBeanFactory {
 
     final private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();

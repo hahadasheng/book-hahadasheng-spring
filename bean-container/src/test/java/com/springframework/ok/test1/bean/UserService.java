@@ -1,4 +1,5 @@
-package com.springframework.test1.bean;
+/*
+package com.springframework.ok.bean;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,3 +44,4 @@ public class UserService {
                 '}';
     }
 }
+*/
